@@ -1,0 +1,130 @@
+// dd($id);
+        // $imagename = ProductImage::where('productid', '=', $id)->get();
+        // $editprod = Product::where('id', '=', $id)->get();
+        // return view('productadd')->with('editprod',$editprod)
+        // ->with('imagename',$imagename);
+
+        // $images = ProductImage::all()->where('productid','=',$id)->toArray();
+        // //
+
+        // $category =  Category::all()->where('cstatus', 'active')->toArray();
+
+        // $editdata = DB::table('tblproduct')
+        //     ->leftjoin('tblcategory', 'tblproduct.cname', '=', 'tblcategory.id')
+        //     ->leftjoin('tblproduct_image', 'tblproduct.id', '=', 'tblproduct_image.productid')
+        //     ->selectraw('tblproduct.*,tblproduct.cname as catname,group_concat(tblproduct_image.istatus) as pistatus,group_concat(DISTINCT tblproduct_image.productid) as proid,group_concat(DISTINCT tblproduct_image.imagename) as proimage')
+        // //     DB::raw('group_concat(DISTINCT tblproduct_image.productid)'),
+        // // DB::raw('group_concat(DISTINCT tblproduct_image.imagename)')
+        //     ->where('tblproduct.pid', $id)
+        //     ->groupby('id')
+        //     ->first();
+
+
+//         SELECT *
+// FROM products p
+// JOIN categorys c ON c.id = p.cname
+// JOIN product_images pi ON pi.productid = p.id
+// WHERE pi.istatus = 'Active' AND p.id =2;
+        // $images = ProductImage::all()->where('productid', '=', $id)->toArray();
+
+        // $category =  Category::all()->where('cstatus', 'Active')->toArray();
+
+        // $editprod = DB::table('products as p')
+        //     ->join('categorys as c', 'c.id', '=', 'p.cname')
+        //     ->join('product_images as pi', 'pi.productid', '=', 'p.id')
+        //     ->selectRaw('p.*, p.cname as catname ,group_concat(pi.istatus) as pistatus, group_concat(DISTINCT pi.productid) as proid , group_concat(DISTINCT pi.imagename) as proimage')
+        //     ->whereRaw('p.id',$id);
+        //     // ->groupBy('p.id')
+        //     // ->first();
+        //     // ->get();
+        //     // ->first();
+        //     // ->get();
+        //     // dd($editprod);
+        // return view('productadd', compact('editprod','category','images'));
+
+
+
+
+
+        {{-- @php
+                            foreach ($images as $key => $value) {
+                                if ($value['istatus'] == 'Active') {
+                                    $activeimage[] = $value['imagename'];
+                                } elseif ($value['istatus'] == 'Inactive') {
+                                    $inactiveimage[] = $value['imagename'];
+                                    $newid[] = $value['imgid'];
+                                }
+                            }
+                        @endphp
+                        @for ($i = 0; $i < count($activeimage); $i++)
+                            <img src="{{ asset('asset/img/Productimage/' . $activeimage[$i]) }}" width="150px"
+                                height="150px"><br><br>
+                        @endfor
+                        @for ($i = 0; $i < count($inactiveimage); $i++)
+                            <img src="{{ asset('asset/img/Productimage/' . $inactiveimage[$i]) }}" width="100px"
+                                height="100px">
+                            <a href="{{ route('activeimage', ['id' => $editprod->id, 'imgid' => $newid[$i]]) }}"
+                                class="btn btn-outline-success">Active</a>
+                            <a href="{{ route('deleteimage', ['imgid' => $newid[$i]]) }}"
+                                class="btn btn-outline-danger">Delete</a><br>
+                        @endfor
+                    @endif --}}
+
+
+
+                    {{-- @if (isset(request()->Product_Id))
+            @foreach ($product->images as $image)
+            @if ($image->eStatus == 'active')
+             <img class="active-image m-2  border border-success" src="{{asset('public/pro_image/'.$image->vImage)}}" alt="product-Image" height="75" width="75">
+            @else
+            <img class="active-image m-2" src="{{asset('public/pro_image/'.$image->vImage)}}" alt="product-Image" height="75" width="75">
+
+             <a href="{{route('active',['ProductId'=>$product->Product_Id ,'id'=>$image->id])}}"><i class="fa fa-check-square ml-2"></i></a>
+               <a href={{route('delete',['id'=>$image->id])}} class="deletebtn"><i class="fas fa-trash-alt"></i></a>
+            {{-- <a href="{{route('active',['ProductId'=>$product->ProductId ,'img_id'=>$image->id])}}"><i class="fa fa-check-square ml-2"></i></a>
+            @endif
+         @endforeach
+            @endif --}}
+
+
+
+            // $data = DB::table('products')
+            //     ->join('categorys', 'categorys.id', '=', 'products.cname')
+            //     ->join('product_images', 'product_images.productid', '=', 'products.id')
+            //     ->select('categorys.cname as catid', 'categorys.id', 'products.*', 'product_images.*')
+            //     ->where('product_images.istatus', '=', 'Active')
+            // dd($data);
+
+
+            // $('#example').DataTable({
+    // "processing": true,
+    // "serverSide": true,
+    // "ajax": '{{ route('categoryindex') }}',
+
+    // "columns": [{
+    // "data": "id"
+    // },
+    // {
+    // "data": "cname"
+    // },
+    // {
+    // "data": "cimage"
+    // },
+    // {
+    // "data": "corder"
+    // },
+    // {
+    // "data": "cstatus"
+    // },
+    // {
+    // "data": "created_at"
+    // },
+    // {
+    // "data": "updated_at"
+    // }
+    // ],
+    // success: function(data) {
+    // console.log(data);
+    // $('tbody').html(data);
+    // }
+    // });
