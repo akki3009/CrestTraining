@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<!-- <div class="container">
+  <h2>Rounded Corners</h2>
+  <p>The .img-rounded class adds rounded corners to an image:</p>            
+  <img src="Jungle_film.jpeg" class="img-rounded" alt="Film Of Horror" width="304" height="236"> 
+  <img src="natural.jpg" class="img-circle" alt="Natural" width="304" height="236">
+  <img src="Sun.jpg" class="img-thumbnail" alt="Sun Grahan" width="304" height="236"> 
+  <img class="img-responsive" src="Jungle_film.jpeg" alt="Film of Horror" width="460" height="345">
+</div> -->
+
+<div class="container">
+  <h2>Image Gallery</h2>
+  <p>The .thumbnail class can be used to display an image gallery.</p>
+  <p>The .caption class adds proper padding and a dark grey color to text inside thumbnails.</p>
+  <p>Click on the images to enlarge them.</p>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="thumbnail">
+        <a href="Jungle_film.jpeg" target="_blank">
+          <img src="Jungle_film.jpeg" alt="Film" style="width:100%">
+          <div class="caption">
+            <p>It is a latest film photo.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="thumbnail">
+        <a href="natural.jpg" target="_blank">
+          <img src="natural.jpg" alt="Nature" style="width:100%">
+          <div class="caption">
+            <p>It show the natural breauty of nature.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="thumbnail">
+        <a href="Sun.jpg" target="_blank">
+          <img src="Sun.jpg" alt="Sun" style="width:100%">
+          <div class="caption">
+            <p>It shows the Grahan and Problem of Sun.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <h2>Responsive Embed</h2>
+  <p>Create a responsive video and scale it nicely to the parent element with an 16:9 aspect ratio</p>
+  <div class="embed-responsive embed-responsive-16by9">
+    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
+  </div>
+</div>
+
+
+</body>
+</html>
