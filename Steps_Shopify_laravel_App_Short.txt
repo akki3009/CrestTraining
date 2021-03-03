@@ -1,0 +1,83 @@
+http://localhost:8000/?
+
+hmac=867a3e249118e7b669528b4370683ea5169959b4e59a8870a17a030647cc02e3
+shop=shoppinghub11.myshopify.com
+timestamp=1614600116
+
+
+controller
+requestUrl{
+    $hmac
+    $show
+    API_KEY
+    API_SECRET_KEY
+    $scops
+}
+
+url = http://localhost:8000/
+
+redirect Url = http://localhost:8000/auth/callback
+
+API_KEY = 60b8a47cfe523459a5ea7d578c29bcd7
+
+API_SECRET_KEY = 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
+
+
+// https://{shop}/admin/oauth/authorize?client_id=$api_key&scope={scopes}&redirect_uri={redirect_uri}
+
+
+http://localhost:8000/auth/callback?
+code=38a3ba6e448ab47c99b42397002b4470&
+hmac=b5821af4983e1750619af32a82d9514424ef1eb1c230b57faec16534a87ae8df&
+shop=shoppinghub11.myshopify.com&
+timestamp=1614679947
+
+
+// dd($config);
+        // $apikey = config('API_SECRET_KEY');
+        // dd($apikey);
+        // $scopes = array(
+        //     'read_content', 'write_content', 'read_themes', 'write_themes', 'read_products', 'write_products', 'read_product_listings', 'read_customers', ' write_customers', 'read_orders', 'write_orders', 'read_all_orders', 'write_order_edits', 'read_draft_orders', 'write_draft_orders', 'read_inventory', 'write_inventory', 'read_locations', 'read_script_tags',
+        //     'write_script_tags', 'read_fulfillments', 'write_fulfillments', 'read_assigned_fulfillment_orders', 'write_assigned_fulfillment_orders', 'read_merchant_managed_fulfillment_orders',
+        //     'write_merchant_managed_fulfillment_orders', 'read_third_party_fulfillment_orders', 'write_third_party_fulfillment_orders', 'read_shipping', 'write_shipping',
+        //     'read_analytics', 'read_users', 'write_users', 'read_checkouts', 'write_checkouts', 'read_reports', 'write_reports', 'read_price_rules', 'write_price_rules', 'read_discounts', 'write_discounts',
+        //     'read_marketing_events', 'write_marketing_events', 'read_resource_feedbacks', ' write_resource_feedbacks', 'read_shopify_payments_payouts',
+        //     'read_shopify_payments_disputes', 'read_translations', 'write_translations', 'read_locales', 'write_locales'
+        // );
+        // $scopes = $request->Scopes()
+
+
+
+
+
+
+
+import { Key } from "sshpk"
+import { code } from "statuses"
+
+`https://${shop}/admin/oauth/authorize?client_id=${apiKey}&scope=${scopes}&redirect_uri=${redirectUrl}`
+https://{shop}/admin/oauth/authorize?client_id=$api_key&scope={scopes}&redirect_uri={redirect_uri}
+
+
+upar ni url thi install page thase shopify nu
+
+install click thase atle redirect_uri /auth/callback
+
+
+
+http://3.14.135.73/auth/callback?code=de01bb083639f77cc951359e1fc6eb9e&hmac=41195252d11cee072e984a3883140efd68c9d950161fc35194d4bffc23deb95e&shop=test-store-2-0-cis.myshopify.com&timestamp=1614664551
+
+POST https://aispeed-store-2-0-3.myshopify.com/admin/oauth/access_token
+
+code
+client id=api Key
+client secret= api secret key
+
+
+
+{
+    "access_token": "f85632530bf277ec9ac6f649fc327f17",
+    "scope": "write_orders,read_customers"
+}
+
+insert->StoreData-> Access Token

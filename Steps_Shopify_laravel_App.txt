@@ -1,0 +1,55 @@
+1) Create Store and Customize theme in Shopify.
+2) Go to shopify Partner account home page and login And Go to App link
+3) Create App in That App link
+4) Create public App and follow Below And Click Create App
+    i) Give APP Name => Test App 1.0.1
+    ii) App Url => https://localhost:8000
+    iii)Allow Redirect url => https://localhost:8000/auth/callback
+5) After Create App It redirect to the App And Response .
+6) In response page we get apikey and secret Key
+    i)Note down Api key => 285f5d5278235b68edd856582fa55055
+    ii) Note Down Secret key => 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
+    iii) Click Select Store
+7) Select Store For which we hae to create app.
+8) And after select Store click Insatll app .
+9) If we click Select Store than we get URL and from that URl We note down below things
+    i) URL : https://localhost:8000/?hmac=f7b55aaeea148679c30eb441fc5c8a56687698dc8dcddf5858ec8a96290863e8&shop=shoppinghub11.myshopify.com&timestamp=1614745304
+        i) url => https://localhost:8000/
+        ii) hmac => hmac=f7b55aaeea148679c30eb441fc5c8a56687698dc8dcddf5858ec8a96290863e8
+        iii) shop => shop=shoppinghub11.myshopify.com
+        iv) timpestamp => timestamp=1614745304
+10) Now we have to create Laravel App for that Store.
+    i)Command => composer create-project --prefer-dist laravel/laravel:^7.0 TestApp
+    ii)Serve => ph artisan serve
+11) Now in laravel App Create Controller And Created Route in Web.php
+12) Now we have create function in controller For that refer TestController.php (function requestUrl).
+13) Note apikey ansd secrekey in .env file and For use that in controller file declare it in service.php
+14) Use service.php file key and secret key write => $api_key = config('services.shopify.key');
+15) AND A also we create heplers.php file and write down scopes whta we use in controller and for persmission to app
+    Now we get following things
+        i)Apikey,Secret Apikey ,scopes, $redirect_uri => 'http://localhost:8000/auth/callback'
+        ii) $url = "https://$shop/admin/oauth/authorize?client_id=$api_key&scope=$scopes&redirect_uri=$redirect_uri";
+        iii) we redirect upper url and we get
+        => http://localhost:8000/auth/callback?code=38a3ba6e448ab47c99b42397002b4470&hmac=b5821af4983e1750619af32a82d9514424ef1eb1c230b57faec16534a87ae8df&shop=shoppinghub11.myshopify.com&timestamp=1614679947
+15) From up URL we require following
+    i) code => code=38a3ba6e448ab47c99b42397002b4470
+    ii) hmac => hmac=b5821af4983e1750619af32a82d9514424ef1eb1c230b57faec16534a87ae8df
+    iii) shop => shop=shoppinghub11.myshopify.com
+
+16) After redirect we create route auth/callback and Create function => accessToken().
+17) in accessToken() We require
+    => i) $code => code=38a3ba6e448ab47c99b42397002b4470
+       ii) $shop => shoppinghub11.myshopify.com
+       iii) $api_key => 285f5d5278235b68edd856582fa55055
+       iv) $api_secret_key = config('services.shopify.secret_key');
+18) Now we have to create array of fields for calling curl  in that array we have
+    =>$fields = array("client_id" => $api_key,
+        "client_secret" => $api_secret_key,
+        "code" => $code);
+19) Now we have to redirect the url below:
+    => $url = "https://$shop/admin/oauth/access_token";
+    And calling curl fucntion and pass => curl($url,$fields,'POST') = method post
+20) Afterv that we get json data and we decode it.
+    => $result = json_decode($data, true);
+        $access_token = $result['access_token'];
+21) Now We insert that generated access_token in db.
